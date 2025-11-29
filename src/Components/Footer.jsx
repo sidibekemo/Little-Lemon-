@@ -1,12 +1,10 @@
-import React from 'react'
-
-function Footer() {
+export default function Footer() {
   return (
     <footer>
-      <p>© 2025 Little Lemon. Tous droits réservés.</p>
-      <p>Chicago, Illinois – USA</p>
+      <div className="footer-inner">
+        <p>© Little Lemon 2025 — Tous droits réservés</p>
+        <a href="/privacy-policy">Politique de confidentialité</a>
+      </div>
     </footer>
-  )
+  );
 }
-
-export default Footer

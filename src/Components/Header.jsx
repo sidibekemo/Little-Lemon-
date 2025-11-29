@@ -1,11 +1,14 @@
-import React from 'react'
+import Nav from "./Nav";
 
-function Header() {
+export default function Header() {
   return (
     <header>
-      <img src="/images/logo-little-lemon.png" alt="Little Lemon Logo" width="120" />
+      <div className="header-inner">
+        <div className="logo">
+          <span>Little Lemon</span>
+        </div>
+        <Nav />
+      </div>
     </header>
-  )
+  );
 }
-
-export default Header

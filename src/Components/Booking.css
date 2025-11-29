@@ -1,0 +1,87 @@
+/***********************************
+ 🔥 FORMULAIRE DE RÉSERVATION FINAL
+***********************************/
+
+.booking-container {
+  display: flex;
+  justify-content: center;
+  margin-top: 3rem;
+}
+
+.booking-form { 
+  background: var(--ll-white);
+  width: 100%;
+  max-width: 480px;
+  padding: 2rem 2.5rem;
+  border-radius: 20px;
+  box-shadow: 0 5px 25px rgba(0,0,0,.08);
+  display: flex;
+  flex-direction: column;
+  gap: 1.4rem;
+  animation: fadeIn .5s ease-out;
+}
+
+.booking-form fieldset {
+  border: none;
+  padding: 0;
+  display: flex;
+  flex-direction: column;
+  gap: 1.1rem;
+}
+
+.booking-form legend {
+  font-family: "Markazi Text", serif;
+  font-size: 2rem;
+  margin-bottom: .5rem;
+  color: var(--ll-primary);
+}
+
+.booking-form label {
+  font-size: 1rem;
+  font-weight: 600;
+  color: var(--ll-primary);
+}
+
+/* Inputs & Selects */
+.booking-form input,
+.booking-form select {
+  background: var(--ll-bg);
+  padding: .75rem 1rem;
+  border-radius: 10px;
+  border: 1.5px solid #bfbfbf;
+  font-size: 1rem;
+  transition: 0.3s ease;
+}
+
+.booking-form input:focus,
+.booking-form select:focus {
+  border-color: var(--ll-secondary);
+  background: #fff;
+  box-shadow: 0 0 0 3px rgba(244,206,20,.45);
+  outline: none;
+}
+
+/* Submit button */
+.booking-form button {
+  padding: .85rem 1rem;
+  border-radius: 40px;
+  border: none;
+  background: var(--ll-secondary);
+  font-weight: 700;
+  cursor: pointer;
+  font-size: 1.05rem;
+  margin-top: .5rem;
+  transition: .25s ease;
+}
+
+.booking-form button:hover {
+  background: #ffe45c;
+  box-shadow: 0 8px 20px rgba(0,0,0,.12);
+  transform: scale(1.03);
+}
+
+/* Animation légère */
+@keyframes fadeIn {
+  from { opacity: 0; transform: translateY(10px); }
+  to   { opacity: 1; transform: translateY(0); }
+}

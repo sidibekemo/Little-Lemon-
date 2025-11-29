@@ -1,42 +1,417 @@
+/* =========================
+   VARIABLES GLOBALES
+   ========================= */
+:root {
+  --ll-primary: #495e57;   /* Vert Little Lemon */
+  --ll-secondary: #f4ce14; /* Jaune Little Lemon */
+  --ll-accent: #ee9972;    /* Saumon */
+  --ll-bg: #edefee;        /* Gris clair */
+  --ll-text: #333333;
+  --ll-white: #ffffff;
+
+  --ll-radius: 16px;
+  --ll-shadow: 0 6px 18px rgba(0, 0, 0, 0.08);
+}
+
+/* Import Google Fonts (optionnel) */
+@import url('https://fonts.googleapis.com/css2?family=Karla:wght@300;400;700&family=Markazi+Text:wght@400;700&display=swap');
+
+/* =========================
+   RESET SIMPLE
+   ========================= */
+*,
+*::before,
+*::after {
+  box-sizing: border-box;
+  margin: 0;
+  padding: 0;
+}
+
+body {
+  font-family: "Karla", system-ui, -apple-system, BlinkMacSystemFont, sans-serif;
+  background-color: var(--ll-bg);
+  color: var(--ll-text);
+  line-height: 1.5;
+}
+
+/* Pour centrer le contenu principal */
 #root {
-  max-width: 1280px;
+  min-height: 100vh;
+  display: flex;
+  flex-direction: column;
+}
+
+/* =========================
+   LAYOUT GÉNÉRAL
+   ========================= */
+main {
+  max-width: 1120px;
   margin: 0 auto;
-  padding: 2rem;
-  text-align: center;
+  padding: 1.5rem 1rem 3rem;
+}
+
+/* =========================
+   HEADER & NAVBAR
+   ========================= */
+header {
+  background-color: var(--ll-white);
+  box-shadow: var(--ll-shadow);
+}
+
+.header-inner {
+  max-width: 1120px;
+  margin: 0 auto;
+  padding: 0.75rem 1rem;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 1.5rem;
 }
 
 .logo {
-  height: 6em;
-  padding: 1.5em;
-  will-change: filter;
-  transition: filter 300ms;
-}
-.logo:hover {
-  filter: drop-shadow(0 0 2em #646cffaa);
-}
-.logo.react:hover {
-  filter: drop-shadow(0 0 2em #61dafbaa);
+  display: flex;
+  align-items: center;
+  gap: 0.5rem;
+  font-family: "Markazi Text", serif;
+  font-size: 1.8rem;
+  font-weight: 700;
+  color: var(--ll-primary);
 }
 
-@keyframes logo-spin {
-  from {
-    transform: rotate(0deg);
-  }
-  to {
-    transform: rotate(360deg);
-  }
+/* Menu principal */
+nav ul {
+  list-style: none;
+  display: flex;
+  gap: 1.25rem;
 }
 
-@media (prefers-reduced-motion: no-preference) {
-  a:nth-of-type(2) .logo {
-    animation: logo-spin infinite 20s linear;
-  }
+nav a {
+  text-decoration: none;
+  font-weight: 600;
+  color: var(--ll-primary);
+  font-size: 0.95rem;
+  padding: 0.25rem 0.5rem;
+  border-radius: 999px;
+  transition: background-color 0.2s ease, color 0.2s ease;
+}
+
+nav a:hover,
+nav a:focus-visible {
+  background-color: var(--ll-primary);
+  color: var(--ll-white);
+  outline: none;
+}
+
+/* =========================
+   SECTION HERO (ACCUEIL)
+   ========================= */
+.hero {
+  display: grid;
+  grid-template-columns: 1.2fr 1fr;
+  gap: 2rem;
+  margin-top: 2rem;
+  padding: 2rem;
+  border-radius: 24px;
+  background: linear-gradient(135deg, var(--ll-primary), #1c2421);
+  color: var(--ll-white);
+  box-shadow: var(--ll-shadow);
+}
+
+.hero-content h1 {
+  font-family: "Markazi Text", serif;
+  font-size: 3rem;
+  margin-bottom: 0.25rem;
+}
+
+.hero-content h2 {
+  font-family: "Markazi Text", serif;
+  font-size: 2rem;
+  color: var(--ll-secondary);
+  margin-bottom: 0.75rem;
+}
+
+.hero-content p {
+  max-width: 32rem;
+  margin-bottom: 1.25rem;
+}
+
+/* Image hero */
+.hero-image-wrapper {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.hero-image {
+  width: 100%;
+  max-width: 320px;
+  border-radius: 24px;
+  object-fit: cover;
+  box-shadow: 0 12px 30px rgba(0, 0, 0, 0.25);
+}
+
+/* =========================
+   BOUTONS
+   ========================= */
+.btn {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  gap: 0.35rem;
+  padding: 0.7rem 1.6rem;
+  border-radius: 999px;
+  border: none;
+  font-weight: 700;
+  font-size: 0.95rem;
+  cursor: pointer;
+  transition: transform 0.12s ease, box-shadow 0.12s ease, background-color 0.15s;
+}
+
+.btn-primary {
+  background-color: var(--ll-secondary);
+  color: #000;
+  box-shadow: 0 8px 18px rgba(0, 0, 0, 0.16);
+}
+
+.btn-primary:hover,
+.btn-primary:focus-visible {
+  background-color: #ffe86a;
+  transform: translateY(-1px);
+  box-shadow: 0 10px 22px rgba(0, 0, 0, 0.18);
+  outline: none;
+}
+
+.btn-outline {
+  background-color: transparent;
+  border: 2px solid var(--ll-white);
+  color: var(--ll-white);
+}
+
+.btn-outline:hover,
+.btn-outline:focus-visible {
+  background-color: var(--ll-white);
+  color: var(--ll-primary);
+}
+
+/* =========================
+   SECTIONS & CARTES
+   ========================= */
+.section-title {
+  display: flex;
+  align-items: baseline;
+  justify-content: space-between;
+  margin-top: 3rem;
+  margin-bottom: 1.5rem;
+}
+
+.section-title h2 {
+  font-family: "Markazi Text", serif;
+  font-size: 2rem;
+  color: var(--ll-primary);
+}
+
+.section-title span {
+  font-size: 0.9rem;
+  color: #666;
+}
+
+/* Liste de cartes (specials, reviews, etc.) */
+.card-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(240px, 1fr));
+  gap: 1.5rem;
 }
 
 .card {
-  padding: 2em;
+  background-color: var(--ll-white);
+  border-radius: var(--ll-radius);
+  overflow: hidden;
+  box-shadow: var(--ll-shadow);
+  display: flex;
+  flex-direction: column;
 }
 
-.read-the-docs {
-  color: #888;
+.card img {
+  width: 100%;
+  height: 160px;
+  object-fit: cover;
 }
+
+.card-body {
+  padding: 1rem 1.1rem 1.25rem;
+  display: flex;
+  flex-direction: column;
+  gap: 0.4rem;
+}
+
+.card-header-line {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+}
+
+.card-title {
+  font-weight: 700;
+}
+
+.card-price {
+  color: var(--ll-accent);
+  font-weight: 700;
+}
+
+.card-description {
+  font-size: 0.9rem;
+  color: #555;
+}
+
+.card-footer {
+  margin-top: 0.6rem;
+  font-size: 0.9rem;
+  font-weight: 600;
+  color: var(--ll-primary);
+}
+
+/* =========================
+   FORMULAIRE DE RÉSERVATION
+   ========================= */
+.booking-section {
+  margin-top: 3rem;
+  padding: 2rem;
+  border-radius: 24px;
+  background-color: var(--ll-white);
+  box-shadow: var(--ll-shadow);
+}
+
+.booking-section h2 {
+  font-family: "Markazi Text", serif;
+  font-size: 2rem;
+  margin-bottom: 1rem;
+  color: var(--ll-primary);
+}
+
+.booking-form {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(230px, 1fr));
+  gap: 1.25rem 1.75rem;
+}
+
+.form-field {
+  display: flex;
+  flex-direction: column;
+  gap: 0.25rem;
+}
+
+.form-field label {
+  font-size: 0.9rem;
+  font-weight: 600;
+  color: var(--ll-primary);
+}
+
+.form-field input,
+.form-field select,
+.form-field textarea {
+  padding: 0.6rem 0.75rem;
+  border-radius: 10px;
+  border: 1px solid #c8c8c8;
+  font-size: 0.95rem;
+  font-family: inherit;
+  background-color: var(--ll-bg);
+  transition: border-color 0.15s ease, background-color 0.15s ease, box-shadow 0.1s ease;
+}
+
+.form-field input:focus,
+.form-field select:focus,
+.form-field textarea:focus {
+  outline: none;
+  border-color: var(--ll-secondary);
+  background-color: var(--ll-white);
+  box-shadow: 0 0 0 2px rgba(244, 206, 20, 0.35);
+}
+
+/* Messages d’erreur / aide */
+.helper-text {
+  font-size: 0.8rem;
+  color: #777;
+}
+
+.error-text {
+  font-size: 0.8rem;
+  color: #b00020;
+}
+
+/* Bouton submit centré */
+.booking-submit {
+  margin-top: 1.5rem;
+  display: flex;
+  justify-content: flex-end;
+}
+
+/* =========================
+   FOOTER
+   ========================= */
+footer {
+  margin-top: auto;
+  background-color: var(--ll-primary);
+  color: var(--ll-white);
+  padding: 1.5rem 1rem;
+}
+
+.footer-inner {
+  max-width: 1120px;
+  margin: 0 auto;
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: space-between;
+  gap: 1rem;
+  font-size: 0.9rem;
+}
+
+.footer-inner a {
+  color: var(--ll-secondary);
+  text-decoration: none;
+}
+
+.footer-inner a:hover {
+  text-decoration: underline;
+}
+
+/* =========================
+   ACCESSIBILITÉ & FOCUS
+   ========================= */
+a,
+button {
+  outline-offset: 3px;
+}
+
+a:focus-visible,
+button:focus-visible {
+  outline: 2px solid var(--ll-secondary);
+}
+
+/* =========================
+   RESPONSIVE
+   ========================= */
+@media (max-width: 768px) {
+  .hero {
+    grid-template-columns: 1fr;
+    padding: 1.5rem;
+  }
+
+  .hero-image-wrapper {
+    order: -1;
+  }
+
+  .header-inner {
+    flex-direction: column;
+    align-items: flex-start;
+  }
+
+  nav ul {
+    flex-wrap: wrap;
+  }
+
+  .booking-section {
+    padding: 1.5rem 1.2rem;
+  }
+}
+
